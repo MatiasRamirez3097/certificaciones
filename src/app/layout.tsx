@@ -20,10 +20,12 @@ const RootLayout = ({
     <html lang="en">
       <body className={inter.className}>
         <Nav></Nav>
-        <Sidebar></Sidebar>
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-          {children}
-        </main>
+        <div className='grid grid-cols-8'>
+          <Sidebar></Sidebar>
+          <main className="flex min-h-screen flex-col items-center justify-between p-24 col-span-7">
+            {children}
+          </main>
+        </div>
       </body>
     </html >
   )

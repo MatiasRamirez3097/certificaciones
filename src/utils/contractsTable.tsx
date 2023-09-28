@@ -1,0 +1,1 @@
+export const heads = ['Cooperativa','Plazo ejecucion','Tarea','Monto','Entrega declaracion jurada']
