@@ -1,4 +1,4 @@
-import { FaGear ,FaWallet, FaHouse } from 'react-icons/fa6'
+import { FaGear, FaWallet, FaHouse, FaUser } from 'react-icons/fa6'
 
 const links = [
     {
@@ -10,6 +10,11 @@ const links = [
         icon: <FaWallet></FaWallet>,
         url: '/contracts',
         text: 'Contratos'
+    },
+    {
+        icon: <FaUser></FaUser>,
+        url: '/cooperatives',
+        text: 'Cooperativas'
     },
     {
         icon: <FaGear></FaGear>,
