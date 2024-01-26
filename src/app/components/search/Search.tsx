@@ -3,7 +3,7 @@ interface SearchProps {
     searchText: string
 }
 
-const Search = ({ action, searchText }: SearchProps) => {
+const Search = ({ action, searchText }: { action: any, searchText: any }) => {
 
     return <input
         type="search"

@@ -1,8 +1,7 @@
 import { FaPen, FaTrash } from "react-icons/fa6"
 import Button from "../button/Button"
 
-const Body = ({ data, deleteable, editable, fields }: { data: any[], deleteable: boolean, editable: boolean, fields: string[] }) => {
-    console.log(data)
+const Body = ({ data, deleteable, editable, editableAction, fields }: { data: any[], deleteable: boolean, editable: boolean, editableAction: any, fields: string[] }) => {
     return <tbody>
         {
             data.length > 0 && data.map((item, index) => {
@@ -17,7 +16,9 @@ const Body = ({ data, deleteable, editable, fields }: { data: any[], deleteable:
                             <td className="flex justify-center">
                                 {
                                     editable ? <button
+                                        value={item._id}
                                         className="relative px-4 py-3 flex justify-center space-x-4 rounded-lg text-white bg-gradient-to-r from-sky-600 to-cyan-400"
+                                        onClick={e => editableAction(e.currentTarget.value)}
                                     >
                                         <FaPen></FaPen>
                                     </button> : undefined

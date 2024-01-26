@@ -17,6 +17,7 @@
     "axios": "^1.5.1",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.2",
+    "formik": "^2.4.5",
     "next": "13.5.2",
     "next-redux-wrapper": "^8.1.0",
     "postcss": "8.4.30",
