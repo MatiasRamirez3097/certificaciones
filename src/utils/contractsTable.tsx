@@ -1,1 +1,12 @@
-export const heads = ['Cooperativa','Plazo ejecucion','Tarea','Monto','Entrega declaracion jurada']
+export const heads = [
+    'Tarea',
+    'Lugar',
+    'Plazo de ejecución',
+    'Cooperativa'
+]
+export const fields = [
+    'tarea',
+    'lugar',
+    'plazoEjecucion',
+    'cooperativa'
+]

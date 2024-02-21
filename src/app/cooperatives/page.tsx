@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { createCooperativa, getCooperativaById, getCooperativas, updateCooperativa } from "@/redux/actions/cooperativasActions";
 import Search from "../components/search/Search";
 import Modal from "../components/modal/Modal";
-import EditForm from "./forms/editForm";
+import EditForm from "../components/form/Form";
 import editFields from "./forms/editFields";
 import { useAppSelector, useAppDispatch } from '../../redux/hooks'
 const Cooperatives = () => {
@@ -77,7 +77,6 @@ const Cooperatives = () => {
                     fields={edit ? editFields(selectedCooperativa) : editFields()}
                     sendSubmit={(values) => submitForm(values)}
                     submitText="Confirmar"
-                    coop={selectedCooperativa}
                 />
             </Modal>
         }

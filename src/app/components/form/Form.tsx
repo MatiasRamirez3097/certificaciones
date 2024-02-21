@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Form, Formik } from 'formik'
-import InputFieldWithLabel from '../../components/InputFieldWithLabel/InputFieldWithLabel'
+import InputFieldWithLabel from '../InputFieldWithLabel/InputFieldWithLabel'
 
 const renderFields = (errors: any, fields: any, touched: any, values: any) => {
     return fields.map((field: any, i: any) => {
@@ -10,7 +10,7 @@ const renderFields = (errors: any, fields: any, touched: any, values: any) => {
             label={field.label}
             name={field.name}
             touched={touched[field.name]}
-            values={values ? values : undefined}
+            values={field.values ? field.values : undefined}
             key={i}
             type={field.type}
         />
@@ -18,8 +18,8 @@ const renderFields = (errors: any, fields: any, touched: any, values: any) => {
     })
 }
 
-const EditForm = ({ action, action2, coop = {}, fields, schema, sendSubmit = null, submitText }: {
-    action: any, action2: any, coop: any, fields: any[], schema: any, sendSubmit: any, submitText: string
+const EditForm = ({ action, action2, fields, schema, sendSubmit = null, submitText }: {
+    action: any, action2: any, fields: any[], schema: any, sendSubmit: any, submitText: string
 }) => {
     const dispatch = useDispatch()
     console.log('esto llega', fields)
@@ -37,7 +37,7 @@ const EditForm = ({ action, action2, coop = {}, fields, schema, sendSubmit = nul
                         <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full">
                             <h3 className="text-base font-semibold leading-6 text-gray-900" id="modal-title">Edit</h3>
                             {
-                                renderFields(errors, fields, touched, coop)
+                                renderFields(errors, fields, touched)
                             }
                         </div>
                     </div>

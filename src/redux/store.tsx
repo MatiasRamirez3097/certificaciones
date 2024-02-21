@@ -2,11 +2,15 @@
 
 import { configureStore } from '@reduxjs/toolkit'
 import cooperativasReducer from './reducers/cooperativasReducer'
+import contratosReducer from './reducers/contratosReducer'
+import periodosReducer from './reducers/periodosReducer'
 import { useDispatch } from 'react-redux';
 
 export const store = configureStore({
     reducer: {
-        cooperativasReducer
+        contratosReducer,
+        cooperativasReducer,
+        periodosReducer
     },
 })
 

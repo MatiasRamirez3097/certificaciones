@@ -1,7 +1,7 @@
 import { Field } from "formik"
 
-const InputFieldWithLabel = ({ error = null, label, name, type, touched = null, values = null }: {
-    error: null | string, label: string, name: string, type: string, touched: null | boolean, values: any
+const InputFieldWithLabel = ({ error = null, label, name, onChange, type, touched = null, values = null }: {
+    error: null | string, label: string, name: string, onChange: any | null, type: string, touched: null | boolean, values: any
 }) => {
     return <>
         <label
@@ -11,6 +11,7 @@ const InputFieldWithLabel = ({ error = null, label, name, type, touched = null, 
         </label>
         <Field
             name={name}
+            onChange={(value) => onChange(value)}
         >
             {({ field }: { field: any }) => (
                 type != 'select' ? <input
@@ -43,7 +44,13 @@ const InputFieldWithLabel = ({ error = null, label, name, type, touched = null, 
                         <option disabled value={""}> -- select an option -- </option>
                         {
                             values.map((value: any, index: number) => {
-                                return <option key={index} value={value} >{value}</option>
+                                return <option
+                                    className="bg-black text-white"
+                                    key={index}
+                                    value={value.value}
+                                >
+                                    {value.label}
+                                </option>
                             })
                         }
                     </select>
