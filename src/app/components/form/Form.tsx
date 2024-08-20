@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { Form, Formik } from 'formik'
 import InputFieldWithLabel from '../InputFieldWithLabel/InputFieldWithLabel'
 
-const renderFields = (errors: any, fields: any, touched: any, values: any) => {
+const renderFields = (errors: any, fields: any, touched: any) => {
     return fields.map((field: any, i: any) => {
+        console.log(field)
         return <InputFieldWithLabel
+            button={field.button ? field.button : undefined}
             error={errors[field.name]}
             label={field.label}
             name={field.name}

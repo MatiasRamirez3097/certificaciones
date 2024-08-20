@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import Nav from './components/nav/Nav'
 import Sidebar from './components/sidebar/Sidebar'
 import { ReduxProvider } from './components/provider/reduxProvider'
+import "tw-elements-react/dist/css/tw-elements-react.min.css";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +19,7 @@ const RootLayout = ({
   children: React.ReactNode
 }) => {
   return (
-    <html lang="es">
+    <html lang="es" className='dark'>
       <ReduxProvider>
         <body className={inter.className}>
           <Nav></Nav>

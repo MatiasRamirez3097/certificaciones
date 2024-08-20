@@ -1,10 +1,49 @@
-const FormFields = (values = null, cooperativas = [], coopFilter) => {
-    console.log(cooperativas)
+const FormFields = (
+    cooperativaValues = [],
+    tareaValues = [],
+    tareaFunction,
+    lugarValues = [],
+    lugarFunction,
+    plazoEjecucionValues = [],
+    plazoEjecucionFunction
+) => {
     const fields = [
-        { name: "cooperativa", label: "Cooperativa", type: "select", value: "", values: cooperativas, onChange: coopFilter },
-        { name: "tarea", label: "Tarea", type: "text", value: "" },
-        { name: "lugar", label: "Lugar", type: "text", value: "" },
-        { name: "plazoEjecucion", label: "Plazo de ejecucion", type: "number", value: 0 }
+        {
+            name: "cooperativa",
+            label: "Cooperativa",
+            type: "autocomplete",
+            value: "",
+            values: cooperativaValues
+        },
+        {
+            name: "tarea",
+            label: "Tarea",
+            type: "autocomplete",
+            value: "",
+            values: tareaValues,
+            button: true,
+            buttonFunction: tareaFunction
+        },
+        {
+            name: "lugar",
+            label: "Lugar",
+            type: "autocomplete",
+            value: "",
+            values: lugarValues,
+            button: true,
+            buttonFunction: lugarFunction
+        },
+        {
+            name: "plazoEjecucion",
+            label: "Plazo de ejecucion",
+            type: "autocomplete",
+            value: "",
+            values: plazoEjecucionValues,
+            button: true,
+            buttonFunction: plazoEjecucionFunction
+        },
+        { name: "periodo", label: "Periodo", type: "month", value: "" },
+        { name: "contratoUrl", label: "Url contrato", type: "text", value: "" }
     ]
 
     if (values) {

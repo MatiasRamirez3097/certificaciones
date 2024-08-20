@@ -13,7 +13,7 @@ import { getCooperativas } from "@/redux/actions/cooperativasActions";
 const Contracts = () => {
     const dispatch = useAppDispatch()
     const { selectedContrato, contratos } = useAppSelector((store: any) => store.contratosReducer)
-    const { cooperativas } = useAppSelector((store) => store.cooperativasReducer)
+    const { cooperativas } = useAppSelector((store: any) => store.cooperativasReducer)
     const [searchText, setSearchText] = useState('')
     const [showModal, setShowModal] = useState(false)
     const [edit, setEdit] = useState(false)
@@ -62,10 +62,10 @@ const Contracts = () => {
             deleteable
             editable
             editableAction={async (val: any) => {
-                await getById(val)
-                await dispatch(getCooperativas())
-                setEdit(true)
-                setShowModal(true)
+                //await getById(val)
+                //await dispatch(getCooperativas())
+                //setEdit(true)
+                //setShowModal(true)
             }}
             fields={fields}
             heads={heads}
@@ -75,13 +75,12 @@ const Contracts = () => {
             <Modal>
                 <Form
                     action={() => setShowModal(false)}
-                    fields={edit ? formFields(selectedContrato) : formFields(null, cooperativas.map((value, index) => {
-                        console.log('este es el map', value._id)
+                    fields={edit ? formFields(selectedContrato) : formFields(cooperativas.map((coop, index) => {
                         return {
-                            value: value._id,
-                            label: value.nombre
+                            value: coop._id,
+                            text: coop.nombre + ' - ' + coop.cuit
                         }
-                    }), dispatch(() => getCooperativas()))}
+                    }))}
                     sendSubmit={(values) => submitForm(values)}
                     submitText="Confirmar"
                 />

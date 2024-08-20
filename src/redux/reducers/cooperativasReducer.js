@@ -11,6 +11,7 @@ const cooperativasReducer = createReducer(initialState,
     (builder) => builder
         .addCase(getCooperativas.fulfilled, (state, action) => {
             const newState = { ...state, cooperativas: action.payload }
+            console.log('action' + action.payload)
             return newState
         })
         .addCase(getCooperativas.rejected, (state, action) => {

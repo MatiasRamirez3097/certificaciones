@@ -16,7 +16,6 @@ const createCooperativa = createAsyncThunk('createCooperativa', async (data: any
 const getCooperativas = createAsyncThunk('getCooperativas', async (value: string | undefined = '') => {
     try {
         const res = await server.get(`/cooperativas/${value}`)
-
         return res.data.response
     } catch (err) {
         console.log(err)
